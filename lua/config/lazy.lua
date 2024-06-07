@@ -44,11 +44,3 @@ require("lazy").setup({
     },
   },
 })
-
--- require("notify").setup({
---   background_colour = "#000000",
--- })
---
--- vim.g.nord_disable_background = true
--- vim.g.nord_bold = false
--- require("nord").set()
