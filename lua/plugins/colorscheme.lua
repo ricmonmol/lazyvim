@@ -1,3 +1,13 @@
+return {
+  { "rose-pine/neovim", name = "rose-pine" },
+  {
+    "LazyVim/LazyVim",
+    opts = {
+      colorscheme = "rose-pine",
+    },
+  },
+}
+
 -- return {
 --   { "Shatur/neovim-ayu" },
 --   "LazyVim/LazyVim",
@@ -16,15 +26,15 @@
 --   },
 -- }
 
-return {
-  { "RRethy/nvim-base16" },
-  {
-    "LazyVim/LazyVim",
-    opts = {
-      colorscheme = "base16-railscasts",
-    },
-  },
-}
+-- return {
+--   { "RRethy/nvim-base16" },
+--   {
+--     "LazyVim/LazyVim",
+--     opts = {
+--       colorscheme = "base16-railscasts",
+--     },
+--   },
+-- }
 
 -- return {
 --   { "rebelot/kanagawa.nvim" },
