@@ -47,17 +47,83 @@ require("lazy").setup({
 
 require("telescope").setup({
   defaults = {
-    -- Default configuration for telescope goes here:
-    -- config_key = value,
     mappings = {
       n = {
         ["<c-d>"] = require("telescope.actions").delete_buffer,
-      }, -- n
+      },
       i = {
         ["<C-h>"] = "which_key",
         ["<c-d>"] = require("telescope.actions").delete_buffer,
-      }, -- i
-    }, -- mappings
-  }, -- defaults
-  ...,
-}) -- telescope setup
+      },
+    },
+  },
+  pickers = {
+    buffers = {
+      show_all_buffers = true,
+      sort_lastused = true,
+      previewer = true,
+      mappings = {
+        i = {
+          ["<C-d>"] = require("telescope.actions").delete_buffer,
+        },
+        n = {
+          ["<C-d>"] = require("telescope.actions").delete_buffer,
+        },
+      },
+      entry_maker = function(entry)
+        local displayer = require("telescope.pickers.entry_display").create({
+          separator = " ",
+          items = {
+            { width = 4 },
+            { width = 2 },
+            { remaining = true },
+          },
+        })
+
+        local make_display = function(e)
+          local mod = e.is_modified and "+" or " "
+          local filename = vim.fn.fnamemodify(e.filename, ":p:~:.")
+          return displayer({
+            { e.bufnr, "TelescopeResultsNumber" },
+            { mod, "TelescopeResultsComment" },
+            { filename },
+          })
+        end
+
+        local filename = vim.api.nvim_buf_get_name(entry.bufnr)
+        return {
+          valid = true,
+          value = entry,
+          ordinal = entry.bufnr .. " : " .. filename,
+          display = make_display,
+          bufnr = entry.bufnr,
+          filename = filename,
+          is_modified = vim.api.nvim_buf_get_option(entry.bufnr, "modified"),
+        }
+      end,
+    },
+  },
+})
+
+require("codecompanion").setup({
+  adapters = {
+    gemini = function()
+      return require("codecompanion.adapters").extend("gemini", {
+        env = {
+          api_key = "AIzaSyAMvNtreHMO2W3hl9BSs_Ho7R_6ksFGcq8",
+        },
+      })
+    end,
+  },
+  strategies = {
+    chat = {
+      adapter = "gemini",
+    },
+    inline = {
+      adapter = "gemini",
+    },
+    agent = {
+      adapter = "gemini",
+    },
+  },
+})
