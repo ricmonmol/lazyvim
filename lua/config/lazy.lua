@@ -110,7 +110,7 @@ require("codecompanion").setup({
     gemini = function()
       return require("codecompanion.adapters").extend("gemini", {
         env = {
-          api_key = "AIzaSyAMvNtreHMO2W3hl9BSs_Ho7R_6ksFGcq8",
+          api_key = "xxxx",
         },
       })
     end,
