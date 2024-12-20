@@ -1,13 +1,17 @@
-return {
-  { "rose-pine/neovim", name = "rose-pine" },
-  {
-    "LazyVim/LazyVim",
-    opts = {
-      colorscheme = "rose-pine",
-    },
-  },
-}
-
+-- return {
+--   { "rose-pine/neovim", name = "rose-pine" },
+--   opts = {
+--     transparent = true,
+--   },
+--   {
+--     "LazyVim/LazyVim",
+--     opts = {
+--       colorscheme = "rose-pine",
+--       transparency = true,
+--     },
+--   },
+-- }
+--
 -- return {
 --   { "Shatur/neovim-ayu" },
 --   "LazyVim/LazyVim",
@@ -64,12 +68,20 @@ return {
 --     },
 --   },
 -- }
+return {
+  "shaunsingh/nord.nvim",
+  {
+    "LazyVim/LazyVim",
+    opts = {
+      colorscheme = "nord",
+    },
+  },
+}
 -- return {
---   { "shaunsingh/nord.nvim" },
+--   { "daschw/leaf.nvim" },
 --   {
 --     "LazyVim/LazyVim",
 --     opts = {
---       colorscheme = "nord",
+--       colorscheme = "leaf",
 --     },
 --   },
--- }

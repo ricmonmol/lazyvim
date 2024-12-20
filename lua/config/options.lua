@@ -5,3 +5,5 @@
 vim.opt.wrap = true
 vim.opt.remap = true
 vim.opt.relativenumber = false
+vim.g.nord_disable_background = true
+vim.g.nord_bold = false
