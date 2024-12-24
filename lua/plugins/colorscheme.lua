@@ -50,15 +50,24 @@
 --   },
 -- }
 
--- return {
---   { "projekt0n/github-nvim-theme" },
---   {
---     "LazyVim/LazyVim",
---     opts = {
---       colorscheme = "github_dark_high_contrast",
---     },
---   },
--- }
+return {
+  {
+    "projekt0n/github-nvim-theme",
+    config = function()
+      require("github-theme").setup({
+        options = {
+          transparent = true,
+        },
+      })
+    end,
+  },
+  {
+    "LazyVim/LazyVim",
+    opts = {
+      colorscheme = "github_dark_high_contrast",
+    },
+  },
+}
 -- return {
 --   "ellisonleao/gruvbox.nvim",
 --   {
@@ -68,15 +77,15 @@
 --     },
 --   },
 -- }
-return {
-  "shaunsingh/nord.nvim",
-  {
-    "LazyVim/LazyVim",
-    opts = {
-      colorscheme = "nord",
-    },
-  },
-}
+-- return {
+--   "shaunsingh/nord.nvim",
+--   {
+--     "LazyVim/LazyVim",
+--     opts = {
+--       colorscheme = "nord",
+--     },
+--   },
+-- }
 -- return {
 --   { "daschw/leaf.nvim" },
 --   {

@@ -52,3 +52,25 @@ require("fzf-lua").setup({
     },
   },
 })
+require("codecompanion").setup({
+  adapters = {
+    gemini = function()
+      return require("codecompanion.adapters").extend("gemini", {
+        env = {
+          api_key = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxx-xxxxxxxxx",
+        },
+      })
+    end,
+  },
+  strategies = {
+    chat = {
+      adapter = "gemini",
+    },
+    inline = {
+      adapter = "gemini",
+    },
+    agent = {
+      adapter = "gemini",
+    },
+  },
+})
